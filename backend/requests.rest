@@ -1,0 +1,41 @@
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+  "username": "Thomas",
+  "password": "password123"
+}
+
+###
+
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "username": "Friend",
+  "password": "password"
+}
+
+###
+GET http://localhost:3000/users/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkZyaWVuZCIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzQ1MzcxNjM1LCJleHAiOjE3NDUzNzE2NTV9.DAbvpRshc8atOyG-0i4aWOol-bndlVPIJxoYnxfIdQo
+
+###
+GET http://localhost:3000/users/admin
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkZyaWVuZCIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzQ1MzcxNjM1LCJleHAiOjE3NDUzNzE2NTV9.DAbvpRshc8atOyG-0i4aWOol-bndlVPIJxoYnxfIdQo
+
+###
+POST http://localhost:3000/auth/token
+Content-Type: application/json
+
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlRob21hcyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0NTM3MTQ2MiwiZXhwIjoxNzQ1NDU3ODYyfQ.Yamy1vUt3V9GKAMRIuhOv2xjuktiBQSW3hrlIAFdiJs"
+}
+
+###
+DELETE http://localhost:3000/auth/logout
+Content-Type: application/json
+
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlRob21hcyIsImlhdCI6MTc0NTM2ODYwNiwiZXhwIjoxNzQ1NDU1MDA2fQ.4iNACBY8iG00_1of9ms3nbx8s5jjNY3WdwmGJQWEEpA"
+}

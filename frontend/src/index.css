@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+/* Apply resets and custom styles */
+@layer base {
+    /* Global spacing and layout reset */
+    html,
+    body,
+    #root {
+        margin: 0 !important;
+        padding: 0 !important;
+        height: 100%;
+        width: 100%;
+    }
+
+    * {
+        @apply box-border;
+    }
+}
+
+@theme {
+    --color-bg: #ffffff; /* 🌿 soft minty background */
+    --color-body: #d2f7e0; /* whiteish gray color */
+    --color-card: #e7fff1; /* 🌱 lighter mint for cards */
+    --color-accent: #6ee7b7; /* 🧼 mint-accent (Tailwind green-300) */
+    --color-accent-dark: #34d399; /* 🍃 darker mint (green-400) */
+    --color-border: #d1fae5; /* subtle green border */
+    --color-text: #065f46; /* deep teal text */
+    --color-text-light: #10b981; /* medium mint text */
+    --color-white: #ffffff; /* default white */
+}
+
+@layer base {
+    html,
+    body,
+    #root {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: var(--color-bg);
+        color: var(--color-text);
+        font-family: system-ui, sans-serif;
+    }
+
+    * {
+        @apply box-border;
+    }
+}
