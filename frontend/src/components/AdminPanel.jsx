@@ -32,7 +32,7 @@ export default function AdminPanel() {
     }, []);
 
     return (
-        <div className="flex flex-grow h-screen">
+        <div className="flex flex-grow h-screen tracking-wide">
             <NavBar />
             <AdminLanding auth={auth} users={users} />
         </div>

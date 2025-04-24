@@ -35,10 +35,10 @@ function LoginForm() {
     }
 
     return (
-        <div className="min-h-screen overflow-hidden flex items-center justify-center bg-bg">
+        <div className="min-h-screen overflow-hidden flex items-center justify-center bg-card tracking-wide">
             <div>
                 <form
-                    className="w-150 flex flex-col gap-4 bg-white p-6 rounded-2xl shadow-lg"
+                    className="w-150 flex flex-col gap-8 bg-white p-6 rounded-2xl shadow-lg"
                     onSubmit={handleSubmit}
                 >
                     <div>
@@ -50,27 +50,27 @@ function LoginForm() {
                         </h1>
                     </div>
                     <input
-                        className="text-xl border-2 p-3 rounded-xl"
+                        className="text-xl border-2 p-4 rounded-xl"
                         type="text"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
                         placeholder="username"
                     />
                     <input
-                        className="text-xl border-2 p-3 rounded-xl"
+                        className="text-xl border-2 p-4 rounded-xl"
                         type="text"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         placeholder="password"
                     />
                     <button
-                        className="bg-text-light text-text text-xl py-3 rounded-xl hover:bg-accent-dark hover:cursor-pointer transition transition-background duration-250"
+                        className="bg-text-light text-whites text-xl py-3 rounded-xl hover:bg-accent-dark hover:cursor-pointer transition transition-background duration-250"
                         type="submit"
                     >
                         Log in
                     </button>
 
-                    <div className="text-sm flex gap-1">
+                    <div className="text-md flex gap-1">
                         <p>Don't have an account?</p>
                         <p
                             className="hover:underline hover:cursor-pointer hover:text-text-light font-bold"
