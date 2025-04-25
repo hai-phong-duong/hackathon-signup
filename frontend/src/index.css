@@ -18,15 +18,16 @@
 }
 
 @theme {
-    --color-bg: #ffffff; /* 🌿 soft minty background */
-    --color-body: #d2f7e0; /* whiteish gray color */
-    --color-card: #e7fff1; /* 🌱 lighter mint for cards */
-    --color-accent: #6ee7b7; /* 🧼 mint-accent (Tailwind green-300) */
-    --color-accent-dark: #34d399; /* 🍃 darker mint (green-400) */
-    --color-border: #d1fae5; /* subtle green border */
-    --color-text: #065f46; /* deep teal text */
-    --color-text-light: #10b981; /* medium mint text */
-    --color-white: #ffffff; /* default white */
+    --color-bg: #1b1b1f; /* deep black background */
+    --color-body: #161618; /* slightly lighter panel bg */
+    --color-accent-hover: #242f2d;
+    --color-accent: #32a46c; /* light green */
+    --color-accent-dark: #1c2927; /* heavy green */
+    --color-border: #ef4444; /* red-500: aggressive border contrast */
+    --color-shadow: #1f2025;
+    --color-text: #dfded5; /* off-white text */
+    --color-text-gray: #a9aeb7; /* off-white text */
+    --color-white: #ffffff; /* keep for true white when needed */
 }
 
 @layer base {
@@ -37,8 +38,7 @@
         margin: 0;
         padding: 0;
         background-color: var(--color-bg);
-        color: var(--color-text);
-        font-family: system-ui, sans-serif;
+        font-family: "Inter", "Times New Roman", Times, sans-serif;
     }
 
     * {

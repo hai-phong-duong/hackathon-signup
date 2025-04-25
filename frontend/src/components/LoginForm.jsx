@@ -4,6 +4,7 @@
 import React, { useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { LogIn } from "lucide-react";
 
 function LoginForm() {
     const [username, setUsername] = useState("");
@@ -21,8 +22,6 @@ function LoginForm() {
         const data = await res.json();
         setAuth(data);
 
-        console.log(data.role);
-
         if (data.role === "admin") {
             return navigate("/admin");
         } else {
@@ -35,10 +34,10 @@ function LoginForm() {
     }
 
     return (
-        <div className="min-h-screen overflow-hidden flex items-center justify-center bg-card tracking-wide">
+        <div className="min-h-screen overflow-hidden flex items-center justify-center bg-bg tracking-wide">
             <div>
                 <form
-                    className="w-150 flex flex-col gap-8 bg-white p-6 rounded-2xl shadow-lg"
+                    className="w-150 flex flex-col gap-8 bg-body p-6 rounded-2xl shadow-lg text-text"
                     onSubmit={handleSubmit}
                 >
                     <div>
@@ -50,30 +49,31 @@ function LoginForm() {
                         </h1>
                     </div>
                     <input
-                        className="text-xl border-2 p-4 rounded-xl"
+                        className="text-xl p-4 rounded-xl text-text border-none focus:outline-2 outline-accent transition-outline duration-250"
                         type="text"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
                         placeholder="username"
                     />
                     <input
-                        className="text-xl border-2 p-4 rounded-xl"
-                        type="text"
+                        className="text-xl p-4 rounded-xl text-text border-none focus:outline-2 outline-accent transition-outline duration-250"
+                        type="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         placeholder="password"
                     />
                     <button
-                        className="bg-text-light text-whites text-xl py-3 rounded-xl hover:bg-accent-dark hover:cursor-pointer transition transition-background duration-250"
+                        className="font-semibold text-accent w-[20%] self-center bg-accent-dark
+                        text-xl py-2 rounded-xl hover:bg-accent-hover hover:cursor-pointer transition transition-background duration-250 flex items-center justify-center gap-2"
                         type="submit"
                     >
-                        Log in
+                        <LogIn /> Log in
                     </button>
 
                     <div className="text-md flex gap-1">
                         <p>Don't have an account?</p>
                         <p
-                            className="hover:underline hover:cursor-pointer hover:text-text-light font-bold"
+                            className="hover:underline hover:cursor-pointer hover:text-text font-bold"
                             onClick={handleRedirectToRegister}
                         >
                             Register

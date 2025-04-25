@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useAuth } from "./contexts/AuthContext";
 import LoginForm from "./components/LoginForm.jsx";
 import Dashboard from "./components/Dashboard.jsx";
-import AdminPanel from "./components/AdminPanel.jsx";
+import AdminPanel from "./components//AdminComponents/AdminPanel.jsx";
 import RequireAuth from "./components/RequireAuth.jsx";
 import RegisterForm from "./components/RegisterForm.jsx";
 

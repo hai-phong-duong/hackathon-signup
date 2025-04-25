@@ -2,13 +2,17 @@ import { useAuth } from "../contexts/AuthContext";
 import { Navigate } from "react-router-dom";
 
 export default function RequireAuth({ children, role }) {
-    const { auth } = useAuth();
+    const { auth, loading } = useAuth();
 
-    console.log(auth);
+    if (loading) return <div className="text-white">Loading...</div>;
 
-    if (auth == null || !auth.accessToken) return <Navigate to="/login" />;
+    if (!auth?.accessToken) {
+        return <Navigate to="/login" replace />;
+    }
 
-    if (role && auth.role !== role) return <Navigate to="/login" />;
+    if (role && auth.role !== role) {
+        return <Navigate to="/login" replace />;
+    }
 
     return children;
 }

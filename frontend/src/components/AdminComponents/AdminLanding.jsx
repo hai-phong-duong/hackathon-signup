@@ -14,7 +14,9 @@ function AdminLanding({ auth, users }) {
             });
 
             setTimeLeft(
-                `${duration.days}d ${duration.hours}h ${duration.minutes}m ${duration.seconds}s`
+                `${duration.days}d ${duration.hours}h ${duration.minutes}m ${
+                    duration.seconds || 0
+                }s`
             );
         };
 
@@ -25,19 +27,18 @@ function AdminLanding({ auth, users }) {
     }, [timeLeft]);
 
     return (
-        <div className="flex flex-col flex-grow p-35 py-20 pr-50 gap-8">
-            <h1 className="text-5xl font-semibold">
-                Welcome,{" "}
-                <span className="text-accent-dark">{auth.username}</span>
+        <div className="bg-bg flex flex-col flex-grow p-35 py-20 pr-50 gap-8">
+            <h1 className="text-5xl text-text font-semibold">
+                Welcome, <span className="text-accent">{auth.username}</span>
             </h1>
-            <div className="grid grid-cols-1 gap-6">
-                <div className="bg-body p-4 rounded-xl border border-1 border-accent-dark">
+            <div className="grid grid-cols-1 gap-6 max-w-[700px]">
+                <div className="bg-body p-4 rounded-xl border border-2 border-accent text-accent">
                     <div className="flex justify-between">
                         <h1 className="text-2xl">
                             <span className="font-semibold">Total Users</span>{" "}
                             {users.length}
                         </h1>
-                        <Users />
+                        <Users className="w-6 h-6" />
                     </div>
                     <div>
                         <p className="text-lg">
@@ -46,14 +47,14 @@ function AdminLanding({ auth, users }) {
                         </p>
                     </div>
                 </div>
-                <div className="bg-body p-4 rounded-xl border border-1 border-accent-dark">
+                <div className="bg-body p-4 rounded-xl border border-2 border-accent text-accent">
                     <div className="flex justify-between">
                         <h1 className="text-2xl">
                             <span className="font-semibold">
                                 Hackathon RSVP closes in
                             </span>
                         </h1>
-                        <Clock />
+                        <Clock className="w-6 h-6" />
                     </div>
                     <div>
                         <p className="text-3xl">
