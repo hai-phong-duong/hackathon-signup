@@ -6,13 +6,18 @@ A modern full-stack admin dashboard for managing hackathon data, built with **Re
 
 ## 🔧 Features
 
--   🔐 JWT Authentication (more details below!)
--   👤 Role-Based Access (:nerd:)
--   📊 Admin Dashboard with hackathon analytics (muchos numeros)
+-   🔐 JWT Authentication (full breakdown below — it's serious)
+-   👤 Role-Based Access (yes, admins get special powers 🤓)
+-   📊 Admin Dashboard with hackathon analytics (muchos números)
 -   💅 Styled with Tailwind CSS (soft forest green theme + dark mode, trust me its a vibe fr)
 -   ⚡ Powered by Vite + React (heck yeah)
 
 ---
+
+## 🖼️ Admin Dashboard Preview
+This is what an authenticated admin sees — powered by JWT tokens, protected routes, and a secure refresh system.
+
+![image](https://github.com/user-attachments/assets/7606ea3c-105b-4ed3-9367-78b5d177cded)
 
 ## 🔐 JWT Authentication & Session Handling
 This hackathon sign-up page implements a robout authentication and authorization system using JSON Web Tokens (JWT).
