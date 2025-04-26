@@ -2,7 +2,7 @@ import "./index.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useAuth } from "./contexts/AuthContext";
 import LoginForm from "./components/LoginForm.jsx";
-import Dashboard from "./components/Dashboard.jsx";
+import UserDashboard from "./components/UserComponents/UserDashboard.jsx";
 import AdminPanel from "./components//AdminComponents/AdminPanel.jsx";
 import RequireAuth from "./components/RequireAuth.jsx";
 import RegisterForm from "./components/RegisterForm.jsx";
@@ -18,7 +18,7 @@ function App() {
                     path="/dashboard"
                     element={
                         <RequireAuth>
-                            <Dashboard />
+                            <UserDashboard />
                         </RequireAuth>
                     }
                 />
