@@ -57,12 +57,8 @@ function AdminLanding({ auth, users }) {
                         </h1>
                         <Clock className="w-6 h-6" />
                     </div>
-                    <div>
-                        <p className="text-3xl">
-                            <span className="font-md font-mono text-text">
-                                {timeLeft}
-                            </span>
-                        </p>
+                    <div className="text-3xl font-md font-mono tex-text">
+                        {timeLeft}
                     </div>
                 </div>
             </div>
