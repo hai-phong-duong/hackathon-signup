@@ -4,6 +4,7 @@ import { useAuth } from "../../contexts/AuthContext.jsx";
 
 import NavBar from "./NavBar.jsx";
 import UserLanding from "./UserLanding.jsx";
+import EditProfile from "./EditProfile.jsx";
 
 function UserDashboard() {
     const [section, setSection] = useState("Home");
@@ -25,6 +26,7 @@ function UserDashboard() {
             <NavBar onSectionSelect={setSection} />
             <div className="flex-grow lg:pl-70">
                 {section === "Home" && <UserLanding auth={auth} />}
+                {section === "Edit Profile" && <EditProfile auth={auth} />}
             </div>
         </div>
     );

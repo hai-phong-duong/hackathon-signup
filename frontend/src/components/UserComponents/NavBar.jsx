@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Menu, X, Home, Users, BarChart, Settings, LogOut } from "lucide-react";
+import { Menu, X, Home, Edit, LogOut } from "lucide-react";
 import { useAuth } from "../../contexts/AuthContext";
 
 function NavBar({ onSectionSelect }) {
@@ -14,16 +14,8 @@ function NavBar({ onSectionSelect }) {
             icon: <Home className="w-5 h-5" />,
         },
         {
-            label: "Users",
-            icon: <Users className="w-5 h-5" />,
-        },
-        {
-            label: "Analytics",
-            icon: <BarChart className="w-5 h-5" />,
-        },
-        {
-            label: "Settings",
-            icon: <Settings className="w-5 h-5" />,
+            label: "Edit Profile",
+            icon: <Edit className="w-5 h-5" />,
         },
     ];
 
