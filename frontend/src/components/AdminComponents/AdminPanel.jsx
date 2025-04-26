@@ -2,10 +2,11 @@ import { use, useEffect, useState } from "react";
 import { useFetcher, useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 
-import Analytics from "./Analytics";
 import NavBar from "./NavBar";
 import AdminLanding from "./AdminLanding";
 import Users from "./Users";
+import Analytics from "./Analytics";
+import Settings from "./Settings";
 
 export default function AdminPanel() {
     const [section, setSection] = useState("Home");
@@ -52,6 +53,7 @@ export default function AdminPanel() {
                 )}
                 {section === "Users" && <Users users={users} />}
                 {section === "Analytics" && <Analytics users={users} />}
+                {section === "Settings" && <Settings />}
             </div>
         </div>
     );

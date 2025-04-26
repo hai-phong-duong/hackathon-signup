@@ -18,6 +18,7 @@ function Analytics({ users }) {
                     timestamp: new Date().toLocaleTimeString("en-US", {
                         hour: "2-digit",
                         minute: "2-digit",
+                        second: "2-digit",
                         hour12: true,
                     }),
                 });
@@ -37,7 +38,7 @@ function Analytics({ users }) {
         <div className="bg-bg flex flex-col flex-grow p-35 py-20 pr-50 gap-8">
             <h1 className="text-5xl text-accent font-semibold">Analytics</h1>
             <h1 className="-mt-3 text-2xl text-text">
-                This is your hackathon and system statistics
+                These are your hackathon and system statistics
             </h1>
             <div className="w-full">
                 <div
@@ -54,14 +55,14 @@ function Analytics({ users }) {
                                     className={`absolute inline-flex h-full w-full animate-ping rounded-full opacity-75 ${
                                         health?.status === "down"
                                             ? "bg-red-500"
-                                            : "bg-accent"
+                                            : "bg-[#32a46c]"
                                     }`}
                                 ></span>
                                 <span
                                     className={`relative inline-flex size-6 rounded-full ${
                                         health?.status === "down"
                                             ? "bg-red-500"
-                                            : "bg-accent"
+                                            : "bg-[#32a46c]"
                                     }`}
                                 ></span>
                             </span>
@@ -69,7 +70,7 @@ function Analytics({ users }) {
                                 className={`text-5xl ${
                                     health?.status === "down"
                                         ? "text-red-500"
-                                        : "text-accent"
+                                        : "text-[#32a46c]"
                                 } `}
                             >
                                 {health?.status}
@@ -99,7 +100,7 @@ function Analytics({ users }) {
                 <div className="mt-5 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
                     <div className="bg-body p-6 pb-10 rounded-xl border-2 border-accent text-text flex flex-col gap-3 col-span-1 sm:col-span-2 md:col-span-3 xl:col-span-2">
                         <p className="text-text-gray">Signups over time</p>
-                        <img src="/assets/chart.png" alt="" />
+                        <p>WIP</p>
                     </div>
                     <div className="bg-body p-6 pb-10 rounded-xl border-2 border-accent text-text flex flex-col gap-3 col-span-1 sm:col-span-2 md:col-span-3 xl:col-span-1">
                         <p className="text-text-gray">API Health</p>

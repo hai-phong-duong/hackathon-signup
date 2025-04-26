@@ -14,9 +14,10 @@ function AdminLanding({ auth, users }) {
             });
 
             setTimeLeft(
-                `${duration.days || 0}d ${duration.hours || 0}h ${
-                    duration.minutes || 0
-                }m ${duration.seconds || 0}s`
+                `${String(duration.days || 0).padStart(2, "0")}d ` +
+                    `${String(duration.hours || 0).padStart(2, "0")}h ` +
+                    `${String(duration.minutes || 0).padStart(2, "0")}m ` +
+                    `${String(duration.seconds || 0).padStart(2, "0")}s`
             );
         };
 
@@ -41,7 +42,7 @@ function AdminLanding({ auth, users }) {
                         <Users className="w-6 h-6" />
                     </div>
                     <div>
-                        <p className="text-lg">
+                        <p className="text-lg text-text">
                             This includes all admins and participants in the
                             database.
                         </p>
@@ -58,7 +59,9 @@ function AdminLanding({ auth, users }) {
                     </div>
                     <div>
                         <p className="text-3xl">
-                            <span className="font-md">{timeLeft}</span>
+                            <span className="font-md font-mono text-text">
+                                {timeLeft}
+                            </span>
                         </p>
                     </div>
                 </div>

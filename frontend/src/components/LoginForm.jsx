@@ -73,7 +73,7 @@ function LoginForm() {
                     <div className="text-md flex gap-1">
                         <p>Don't have an account?</p>
                         <p
-                            className="hover:underline hover:cursor-pointer hover:text-text font-bold"
+                            className="hover:underline hover:cursor-pointer font-bold text-accent"
                             onClick={handleRedirectToRegister}
                         >
                             Register

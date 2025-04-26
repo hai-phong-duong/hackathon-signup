@@ -57,7 +57,7 @@ function RegisterForm() {
                 />
                 <input
                     className="text-xl p-4 rounded-xl text-text border-none focus:outline-2 outline-accent transition-outline duration-250"
-                    type="text"
+                    type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="password"
@@ -72,7 +72,7 @@ function RegisterForm() {
                 <div className="text-md flex gap-1">
                     <p>Already have an acccount?</p>
                     <p
-                        className="hover:underline hover:cursor-pointer hover:text-text font-bold"
+                        className="hover:underline hover:cursor-pointer font-bold text-accent"
                         onClick={handleRedirectToLogin}
                     >
                         Log in
