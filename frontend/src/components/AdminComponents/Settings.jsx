@@ -1,6 +1,8 @@
 import Theme from "./Settings/Theme";
 import Accent from "./Settings/Accent";
 
+import AutoLogout from "./Settings/AutoLogout";
+
 function Settings() {
     return (
         <div className="bg-bg flex flex-col flex-grow p-35 py-20 pr-50 gap-8">
@@ -9,13 +11,15 @@ function Settings() {
                 Change system settings here
             </h1>
             <div className="bg-body p-4 rounded-xl border border-2 border-accent">
-                <h1 className="text-2xl">
-                    <span className="font-semibold text-accent">
-                        Appearance
-                    </span>
+                <h1 className="text-2xl font-semibold text-accent">
+                    Appearance
                 </h1>
                 <Theme />
                 <Accent />
+            </div>
+            <div className="bg-body p-4 rounded-xl border border-2 border-accent">
+                <h1 className="text-2xl font-semibold text-accent">System</h1>
+                <AutoLogout />
             </div>
         </div>
     );

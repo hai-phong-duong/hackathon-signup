@@ -1,15 +1,6 @@
 import { useState, useEffect } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
-import {
-    House,
-    Menu,
-    X,
-    Home,
-    Users,
-    BarChart,
-    Settings,
-    LogOut,
-} from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { Menu, X, Home, Users, BarChart, Settings, LogOut } from "lucide-react";
 import { useAuth } from "../../contexts/AuthContext";
 
 function NavBar({ onSectionSelect }) {

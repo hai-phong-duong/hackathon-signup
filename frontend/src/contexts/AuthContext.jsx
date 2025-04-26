@@ -48,6 +48,7 @@ export function AuthProvider({ children }) {
         } catch (err) {
             console.log("logout failed (probably server is down):", err);
         } finally {
+            console.log("Setting auth to null");
             setAuth(null);
             localStorage.removeItem("auth");
         }
