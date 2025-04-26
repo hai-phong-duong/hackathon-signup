@@ -15,7 +15,11 @@ function Analytics({ users }) {
                     status: "down",
                     uptime: "N/A",
                     requestCount: "N/A",
-                    timestamp: new Date().toISOString(),
+                    timestamp: new Date().toLocaleTimeString("en-US", {
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        hour12: true,
+                    }),
                 });
             }
         };
@@ -32,16 +36,19 @@ function Analytics({ users }) {
     return (
         <div className="bg-bg flex flex-col flex-grow p-35 py-20 pr-50 gap-8">
             <h1 className="text-5xl text-accent font-semibold">Analytics</h1>
-            <div className="max-w-[700px]">
+            <h1 className="-mt-3 text-2xl text-text">
+                This is your hackathon and system statistics
+            </h1>
+            <div className="w-full">
                 <div
                     className="grid gap-4 
-                grid-cols-1 
-                md:grid-cols-2 
-                lg:grid-cols-3"
+                grid-cols-1
+                md:grid-cols-2
+                xl:grid-cols-3"
                 >
-                    <div className="bg-body p-6 pb-10 rounded-xl border-2 border-accent text-text flex flex-col gap-3">
+                    <div className="bg-body p-6 pb-10 rounded-xl border-2 border-accent text-text flex flex-col gap-3 col-span-1">
                         <p className="text-text-gray">API Status</p>
-                        <div className="flex items-center gap-4">
+                        <div className="flex items-center gap-4 col-span-1">
                             <span className="relative flex size-6">
                                 <span
                                     className={`absolute inline-flex h-full w-full animate-ping rounded-full opacity-75 ${
@@ -70,13 +77,13 @@ function Analytics({ users }) {
                         </div>
                     </div>
 
-                    <div className="bg-body p-6 pb-10 rounded-xl border-2 border-accent text-text flex flex-col gap-3">
+                    <div className="bg-body p-6 pb-10 rounded-xl border-2 border-accent text-text flex flex-col gap-3 col-span-1">
                         <p className="text-text-gray">Total Users</p>
                         <p className="text-5xl">
                             {health?.status === "down" ? "N/A" : users.length}
                         </p>
                     </div>
-                    <div className="bg-body p-6 pb-10 rounded-xl border-2 border-accent text-text flex flex-col gap-3">
+                    <div className="bg-body p-6 pb-10 rounded-xl border-2 border-accent text-text flex flex-col gap-3 col-span-1 md:col-span-2 xl:col-span-1">
                         <p className="text-text-gray">Registration Progress</p>
                         <p className="text-5xl">
                             {health?.status === "down" ? "N/A" : `${progress}%`}
@@ -86,6 +93,31 @@ function Analytics({ users }) {
                                 className="h-full rounded-r-xl bg-accent transition-all duration-500"
                                 style={{ width: `${progress}%` }}
                             ></div>
+                        </div>
+                    </div>
+                </div>
+                <div className="mt-5 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+                    <div className="bg-body p-6 pb-10 rounded-xl border-2 border-accent text-text flex flex-col gap-3 col-span-1 sm:col-span-2 md:col-span-3 xl:col-span-2">
+                        <p className="text-text-gray">Signups over time</p>
+                        <img src="/assets/chart.png" alt="" />
+                    </div>
+                    <div className="bg-body p-6 pb-10 rounded-xl border-2 border-accent text-text flex flex-col gap-3 col-span-1 sm:col-span-2 md:col-span-3 xl:col-span-1">
+                        <p className="text-text-gray">API Health</p>
+                        <div className="flex flex-col gap-3 text-xl">
+                            <div className="flex justify-between">
+                                <p>Uptime</p>
+                                <p>{health?.uptime}</p>
+                            </div>
+                            <div className="flex justify-between">
+                                <p>Requests</p>
+                                <p>{health?.requestCount}</p>
+                            </div>
+                            <div className="w-full flex justify-center flex-col">
+                                <p>Checked at</p>
+                                <p className="text-3xl text-accent">
+                                    {health?.timestamp}
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>

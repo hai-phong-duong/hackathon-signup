@@ -14,9 +14,9 @@ function AdminLanding({ auth, users }) {
             });
 
             setTimeLeft(
-                `${duration.days}d ${duration.hours}h ${duration.minutes}m ${
-                    duration.seconds || 0
-                }s`
+                `${duration.days || 0}d ${duration.hours || 0}h ${
+                    duration.minutes || 0
+                }m ${duration.seconds || 0}s`
             );
         };
 
@@ -31,7 +31,7 @@ function AdminLanding({ auth, users }) {
             <h1 className="text-5xl text-text font-semibold">
                 Welcome, <span className="text-accent">{auth.username}</span>
             </h1>
-            <div className="grid grid-cols-1 gap-6 max-w-[700px]">
+            <div className="grid grid-cols-1 gap-6 max-w-[768px]">
                 <div className="bg-body p-4 rounded-xl border border-2 border-accent text-accent">
                     <div className="flex justify-between">
                         <h1 className="text-2xl">

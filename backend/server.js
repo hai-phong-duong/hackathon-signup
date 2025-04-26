@@ -30,7 +30,11 @@ app.get("/health", (req, res) => {
         status: "ok",
         uptime: `${uptimeSeconds}s`,
         requestCount,
-        timestamp: new Date().toISOString(),
+        timestamp: new Date().toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: true,
+        }),
     });
 });
 

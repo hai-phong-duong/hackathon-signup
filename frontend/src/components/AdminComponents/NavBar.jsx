@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import {
     House,
@@ -13,7 +13,7 @@ import {
 import { useAuth } from "../../contexts/AuthContext";
 
 function NavBar({ onSectionSelect }) {
-    const [collapsed, setCollapsed] = useState(true);
+    const [collapsed, setCollapsed] = useState(window.innerWidth < 1024);
     const { logout } = useAuth();
     const navigate = useNavigate;
 
@@ -36,21 +36,34 @@ function NavBar({ onSectionSelect }) {
         },
     ];
 
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth >= 1280) {
+                setCollapsed(false); // force open on larger screens
+            } else if (window.innerWidth <= 920) {
+                setCollapsed(true);
+            }
+        };
+
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
     return (
         <div
-            className={`relative h-full transition-all duration-300 bg-bg ${
+            className={`fixed top-0 left-0 h-full transition-all duration-300 bg-bg z-100 ${
                 collapsed ? "w-16" : "w-70"
             }`}
         >
             <button
-                onClick={() => setCollapsed(false)}
+                onClick={() => window.innerWidth < 1024 && setCollapsed(false)}
                 className={`
     absolute top-0 left-0 p-4 transition-opacity duration-300
     ${
         collapsed
             ? "opacity-100 delay-300 cursor-pointer"
             : "opacity-0 pointer-events-none"
-    }
+    } lg:hidden
   `}
             >
                 <Menu className="w-8 h-8 text-accent" />
@@ -62,7 +75,7 @@ function NavBar({ onSectionSelect }) {
                 } w-70`}
             >
                 <div className="flex justify-between items-center">
-                    <div className="flex items-center gap-3 text-xl font-semibold">
+                    <div className="flex w-full items-center md:justify-center gap-3 text-xl font-semibold">
                         <img
                             src="/assets/tree.PNG"
                             alt=""
@@ -73,8 +86,10 @@ function NavBar({ onSectionSelect }) {
                         </h1>
                     </div>
                     <button
-                        onClick={() => setCollapsed(true)}
-                        className="p-2 cursor-pointer text-accent"
+                        onClick={() =>
+                            window.innerWidth < 1024 && setCollapsed(true)
+                        }
+                        className="p-2 cursor-pointer text-accent lg:hidden"
                     >
                         <X className="w-8 h-8" />
                     </button>

@@ -41,14 +41,18 @@ export default function AdminPanel() {
 
     return (
         <div
-            className={`opacity-0 flex h-screen tracking-wide ${
+            className={`opacity-0 flex min-h-screen tracking-wide ${
                 isVisible ? "opacity-100" : "opacity-0"
-            } duration-700`}
+            } duration-768`}
         >
             <NavBar onSectionSelect={setSection} />
-            {section === "Home" && <AdminLanding auth={auth} users={users} />}
-            {section === "Users" && <Users users={users} />}
-            {section === "Analytics" && <Analytics users={users} />}
+            <div className="flex-grow lg:pl-70">
+                {section === "Home" && (
+                    <AdminLanding auth={auth} users={users} />
+                )}
+                {section === "Users" && <Users users={users} />}
+                {section === "Analytics" && <Analytics users={users} />}
+            </div>
         </div>
     );
 }
