@@ -1,4 +1,5 @@
 function Theme() {
+    // tones
     const darkTheme = {
         "color-bg": "#1b1b1f",
         "color-body": "#161618",
@@ -39,6 +40,59 @@ function Theme() {
         "color-white": "#ffffff",
     };
 
+    // themes
+    const synthwave = {
+        "color-bg": "#0d0221",
+        "color-body": "#160c24",
+        "color-accent-hover": "#fff380",
+        "color-accent": "#ff007f",
+        "color-accent-dark": "#1b2830",
+        "color-border": "#6a0dad",
+        "color-shadow": "#1a082a",
+        "color-text": "#00f0ff",
+        "color-text-gray": "#f5b3f3",
+        "color-white": "#ffffff",
+    };
+
+    const icyWinter = {
+        "color-bg": "#0d1b2a",
+        "color-body": "#1b263b",
+        "color-accent-hover": "#91cce6",
+        "color-accent": "#3a86ff",
+        "color-accent-dark": "#0a2540",
+        "color-border": "#415a77",
+        "color-shadow": "#09111d",
+        "color-text": "#e0f2f1",
+        "color-text-gray": "#b0bec5",
+        "color-white": "#ffffff",
+    };
+
+    const pastel = {
+        "color-bg": "#f9f9ff",
+        "color-body": "#f0f4ff",
+        "color-accent-hover": "#d4e4ff",
+        "color-accent": "#89b9ff",
+        "color-accent-dark": "#5a8dff",
+        "color-border": "#dbe5ff",
+        "color-shadow": "#d4dff9",
+        "color-text": "#5c5470",
+        "color-text-gray": "#8d8aa5",
+        "color-white": "#ffffff",
+    };
+
+    const mirage = {
+        "color-bg": "#fdf6e3",
+        "color-body": "#f5e7c5",
+        "color-accent-hover": "#f4a261",
+        "color-accent": "#e76f51",
+        "color-accent-dark": "#8d5524",
+        "color-border": "#e0cba8",
+        "color-shadow": "#dacbb2",
+        "color-text": "#5c4a32",
+        "color-text-gray": "#8b7960",
+        "color-white": "#ffffff",
+    };
+
     function applyTheme(theme) {
         const root = document.documentElement;
 
@@ -49,8 +103,8 @@ function Theme() {
 
     return (
         <div className="text-text mt-3">
-            <h1 className="text-xl font-semibold">Themes</h1>
-            <p>Change the theme for better visibility</p>
+            <h1 className="text-xl font-semibold">Tone</h1>
+            <p>Change the tone for better visibility</p>
             <div className="mt-3 flex gap-3">
                 <div
                     onClick={() => applyTheme(lightTheme)}
@@ -67,6 +121,26 @@ function Theme() {
                 <div
                     onClick={() => applyTheme(onyxTheme)}
                     className="w-12 h-12 bg-[#000000] rounded-full border-1 cursor-pointer"
+                />
+            </div>
+            <h1 className="text-xl font-semibold mt-3">Themes</h1>
+            <p>Believe in your flyness</p>
+            <div className="mt-3 flex gap-3">
+                <div
+                    onClick={() => applyTheme(synthwave)}
+                    className="w-12 h-12 bg-[#170C25] rounded-full border-1 cursor-pointer"
+                />
+                <div
+                    onClick={() => applyTheme(icyWinter)}
+                    className="w-12 h-12 bg-[#1B263B] rounded-full border-1 cursor-pointer"
+                />
+                <div
+                    onClick={() => applyTheme(pastel)}
+                    className="w-12 h-12 bg-[#F0F4FF] rounded-full border-1 cursor-pointer"
+                />
+                <div
+                    onClick={() => applyTheme(mirage)}
+                    className="w-12 h-12 bg-[#f4a261] rounded-full border-1 cursor-pointer"
                 />
             </div>
         </div>

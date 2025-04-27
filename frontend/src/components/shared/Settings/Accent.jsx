@@ -37,7 +37,7 @@ function Accent() {
     }
 
     return (
-        <div className="text-text mt-6">
+        <div className="text-text mt-3">
             <h1 className="text-xl font-semibold">Accents</h1>
             <p>Change the accents for extra flair</p>
             <div className="mt-3 flex gap-3">
