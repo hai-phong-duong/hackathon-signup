@@ -95,8 +95,8 @@ function NavBar({ onSectionSelect }) {
                     <button
                         className="font-semibold text-accent w-full
                         text-xl px-4 py-2 rounded-xl items-center hover:bg-accent-hover hover:cursor-pointer transition transition-background duration-250 flex gap-2"
-                        onClick={() => {
-                            logout();
+                        onClick={async () => {
+                            await logout();
                             navigate("/login");
                         }}
                     >

@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 
 function EditProfile() {
-    const { auth, setAuth } = useAuth();
+    const { auth, logout } = useAuth();
     const navigate = useNavigate();
     const [username, setUsername] = useState(auth.username);
     const [email, setEmail] = useState("");
@@ -41,7 +41,7 @@ function EditProfile() {
             }
 
             alert("Profile updated successfully. Please log in again.");
-            setAuth(null);
+            await logout();
             navigate("/login");
         } catch (error) {
             console.log("Failed to update profile:", error);

@@ -65,7 +65,7 @@ export function AuthProvider({ children }) {
             });
 
             if (!res.ok) {
-                logout();
+                await logout();
                 return console.log("auth context error!");
             }
 
@@ -76,7 +76,7 @@ export function AuthProvider({ children }) {
                 refreshToken: data.refreshToken,
             });
         } catch (err) {
-            logout();
+            await logout();
         }
     }
 
