@@ -8,7 +8,7 @@ function Schedule() {
             <div className="overflow-x-auto">
                 <table className="w-full border-collapse table-fixed">
                     <thead>
-                        <tr className="text-accent border-b border-gray-600">
+                        <tr className="text-accent border-b border-accent">
                             <th className="p-4 text-left w-24">Time</th>
                             <th className="p-4 text-center">Theatre</th>
                             <th className="p-4 text-center">Library</th>
@@ -16,10 +16,13 @@ function Schedule() {
                         </tr>
                     </thead>
                     <tbody className="text-text">
-                        <tr className="border-b border-gray-700">
+                        <tr className="border-b border-accent">
+                            <td className="p-4 text-right">7:00</td>
+                        </tr>
+                        <tr className="border-b border-accent">
                             <td className="p-4 text-right">8:00</td>
-                            <td className="p-4 bg-accent rounded-md text-center">
-                                Opening Ceremony
+                            <td className="p-4 bg-accent rounded-md text-center m-2">
+                                Opening
                             </td>
                             <td className="p-4"></td>
                             <td className="p-4 bg-accent/60 rounded-md text-center">
@@ -27,11 +30,9 @@ function Schedule() {
                             </td>
                         </tr>
 
-                        <tr className="border-b border-gray-700">
+                        <tr className="border-b border-accent">
                             <td className="p-4 text-right">9:00</td>
-                            <td className="p-4 bg-accent/70 rounded-md text-center">
-                                Food
-                            </td>
+                            <td></td>
                             <td className="p-4 bg-accent/40 rounded-md text-center">
                                 Workshop
                             </td>
@@ -43,7 +44,7 @@ function Schedule() {
                             </td>
                         </tr>
 
-                        <tr className="border-b border-gray-700">
+                        <tr className="border-b border-accent">
                             <td className="p-4 text-right">10:00</td>
                             <td className="p-4 bg-accent/50 rounded-md text-center">
                                 Workshop 2

@@ -4,6 +4,7 @@ import { useAuth } from "../../contexts/AuthContext.jsx";
 
 import NavBar from "./NavBar.jsx";
 import UserLanding from "./UserLanding.jsx";
+import Settings from "./Settings.jsx";
 import EditProfile from "./EditProfile.jsx";
 import Schedule from "./Schedule.jsx";
 
@@ -29,6 +30,7 @@ function UserDashboard() {
                 {section === "Home" && <UserLanding auth={auth} />}
                 {section === "Edit Profile" && <EditProfile />}
                 {section === "Schedule" && <Schedule />}
+                {section === "Settings" && <Settings />}
             </div>
         </div>
     );
