@@ -10,6 +10,7 @@ A modern full-stack admin dashboard for managing hackathon data, built with **Re
 -   👤 Role-Based Access (yes, admins get special powers 🤓)
 -   📊 Admin Dashboard with hackathon analytics (muchos números)
 -   💅 Styled with Tailwind CSS (soft forest green theme + dark mode, trust me its a vibe fr)
+-   ⚙️ Customizable UI with light/ash/dark/onyx themes + 5 different accent colors (yes there's a neon pink option)
 -   ⚡ Powered by Vite + React (heck yeah)
 
 ---
