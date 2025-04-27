@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Menu, X, Home, Edit, LogOut } from "lucide-react";
+import { Menu, X, Home, Edit, LogOut, Calendar } from "lucide-react";
 import { useAuth } from "../../contexts/AuthContext";
 
 function NavBar({ onSectionSelect }) {
@@ -12,6 +12,10 @@ function NavBar({ onSectionSelect }) {
         {
             label: "Home",
             icon: <Home className="w-5 h-5" />,
+        },
+        {
+            label: "Schedule",
+            icon: <Calendar className="w-5 h-5" />,
         },
         {
             label: "Edit Profile",
