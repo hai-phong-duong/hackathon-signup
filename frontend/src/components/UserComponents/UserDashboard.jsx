@@ -4,6 +4,7 @@ import { useAuth } from "../../contexts/AuthContext.jsx";
 
 import NavBar from "./NavBar.jsx";
 import UserLanding from "./UserLanding.jsx";
+import FAQ from "./FAQ.jsx";
 import Settings from "./Settings.jsx";
 import EditProfile from "./EditProfile.jsx";
 import Schedule from "./Schedule.jsx";
@@ -31,6 +32,7 @@ function UserDashboard() {
                 {section === "Edit Profile" && <EditProfile />}
                 {section === "Schedule" && <Schedule />}
                 {section === "Settings" && <Settings />}
+                {section === "FAQ" && <FAQ onSectionSelect={setSection} />}
             </div>
         </div>
     );

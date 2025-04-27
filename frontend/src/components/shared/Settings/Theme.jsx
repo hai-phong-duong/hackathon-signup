@@ -83,13 +83,26 @@ function Theme() {
     const mirage = {
         "color-bg": "#fdf6e3",
         "color-body": "#f5e7c5",
-        "color-accent-hover": "#f4a261",
+        "color-accent-hover": "#ffc89c",
         "color-accent": "#e76f51",
         "color-accent-dark": "#8d5524",
         "color-border": "#e0cba8",
         "color-shadow": "#dacbb2",
         "color-text": "#5c4a32",
         "color-text-gray": "#8b7960",
+        "color-white": "#ffffff",
+    };
+
+    const coffee = {
+        "color-bg": "#2e2219",
+        "color-body": "#3b2f26",
+        "color-accent-hover": "#826f5c",
+        "color-accent": "#c69c6d",
+        "color-accent-dark": "#8b5e3c",
+        "color-border": "#5c4533",
+        "color-shadow": "#1d150f",
+        "color-text": "#e8d8c3",
+        "color-text-gray": "#b8a693",
         "color-white": "#ffffff",
     };
 
@@ -140,7 +153,11 @@ function Theme() {
                 />
                 <div
                     onClick={() => applyTheme(mirage)}
-                    className="w-12 h-12 bg-[#f4a261] rounded-full border-1 cursor-pointer"
+                    className="w-12 h-12 bg-[#e76f51] rounded-full border-1 cursor-pointer"
+                />
+                <div
+                    onClick={() => applyTheme(coffee)}
+                    className="w-12 h-12 bg-[#d6a77a] rounded-full border-1 cursor-pointer"
                 />
             </div>
         </div>
