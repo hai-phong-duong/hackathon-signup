@@ -6,25 +6,25 @@ function Accent() {
     };
     const neonPinkAccent = {
         "color-accent": "#f472b6",
-        "color-accent-dark": "#be185d",
+        "color-accent-dark": "#291c26",
         "color-accent-hover": "#5c424f",
     };
 
     const crimsonAccent = {
         "color-accent": "#ef4444",
-        "color-accent-dark": "#b91c1c",
+        "color-accent-dark": "#291c22",
         "color-accent-hover": "#574545",
     };
 
     const purpleAccent = {
         "color-accent": "#a855f7",
-        "color-accent-dark": "#7e22ce",
+        "color-accent-dark": "#241c29",
         "color-accent-hover": "#514859",
     };
 
     const cyanAccent = {
         "color-accent": "#06b6d4",
-        "color-accent-dark": "#0e7490",
+        "color-accent-dark": "#1c2729",
         "color-accent-hover": "#425254",
     };
 
