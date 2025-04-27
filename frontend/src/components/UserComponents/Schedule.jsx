@@ -27,7 +27,6 @@ function Schedule() {
                             </td>
                         </tr>
 
-                        {/* Row for 9:00 */}
                         <tr className="border-b border-gray-700">
                             <td className="p-4 text-right">9:00</td>
                             <td className="p-4 bg-accent/70 rounded-md text-center">
@@ -44,7 +43,6 @@ function Schedule() {
                             </td>
                         </tr>
 
-                        {/* Row for 10:00 */}
                         <tr className="border-b border-gray-700">
                             <td className="p-4 text-right">10:00</td>
                             <td className="p-4 bg-accent/50 rounded-md text-center">
@@ -53,10 +51,7 @@ function Schedule() {
                             <td className="p-4 bg-accent/30 rounded-md text-center">
                                 Chill Zone
                             </td>
-                            {/* no <td> for Cafeteria here — Snacks is spanning already */}
                         </tr>
-
-                        {/* More rows if needed */}
                     </tbody>
                 </table>
             </div>
