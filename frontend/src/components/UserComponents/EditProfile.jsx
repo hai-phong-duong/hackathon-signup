@@ -1,11 +1,52 @@
-import { LogIn, SendHorizonal } from "lucide-react";
+import { SendHorizonal } from "lucide-react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-function EditProfile({ auth }) {
+import { useAuth } from "../../contexts/AuthContext";
+
+function EditProfile() {
+    const { auth, setAuth } = useAuth();
+    const navigate = useNavigate();
     const [username, setUsername] = useState(auth.username);
     const [email, setEmail] = useState("");
     const [oldPassword, setOldPassword] = useState("");
     const [newPassword, setNewPassword] = useState("");
+
+    async function handleSubmit(e) {
+        e.preventDefault();
+
+        const payload = {
+            oldUsername: auth.username,
+            newUsername: username,
+            email: email,
+            oldPassword: oldPassword,
+            newPassword: newPassword,
+        };
+
+        try {
+            const res = await fetch("http://localhost:3000/users/update", {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${auth.accessToken}`,
+                },
+                body: JSON.stringify(payload),
+            });
+
+            if (!res.ok) {
+                setUsername(auth.username);
+                setOldPassword("");
+                setNewPassword("");
+                return console.log("Wrong password or bad input!");
+            }
+
+            alert("Profile updated successfully. Please log in again.");
+            setAuth(null);
+            navigate("/login");
+        } catch (error) {
+            console.log("Failed to update profile:", error);
+        }
+    }
 
     return (
         <div className="bg-bg flex flex-col flex-grow p-35 py-20 pr-50 gap-8">
@@ -13,7 +54,7 @@ function EditProfile({ auth }) {
                 <span className="text-accent">Edit</span> Your Profile
             </h1>
             <div className="bg-body p-4 rounded-xl border border-2 border-accent">
-                <form action="">
+                <form onSubmit={handleSubmit}>
                     <div className="mb-6">
                         <label className="text-accent block p-2">
                             Username

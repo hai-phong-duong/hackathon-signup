@@ -10,7 +10,7 @@ function UserDashboard() {
     const [section, setSection] = useState("Home");
     const [isVisible, setIsVisible] = useState(false);
     const navigate = useNavigate();
-    const { auth } = useAuth();
+    const { auth, setAuth } = useAuth();
     const token = auth.accessToken;
 
     useEffect(() => {
@@ -26,7 +26,7 @@ function UserDashboard() {
             <NavBar onSectionSelect={setSection} />
             <div className="flex-grow lg:pl-70">
                 {section === "Home" && <UserLanding auth={auth} />}
-                {section === "Edit Profile" && <EditProfile auth={auth} />}
+                {section === "Edit Profile" && <EditProfile />}
             </div>
         </div>
     );

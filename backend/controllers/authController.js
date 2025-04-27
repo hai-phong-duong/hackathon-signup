@@ -112,7 +112,7 @@ export function logout(req, res) {
     res.sendStatus(204);
 }
 
-function generateAccessToken(userPayload) {
+export function generateAccessToken(userPayload) {
     return jwt.sign(userPayload, process.env.ACCESS_TOKEN_SECRET, {
         expiresIn: "15s",
     });
