@@ -3,35 +3,9 @@
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import dotenv from "dotenv";
+import User from "../models/User.js";
 dotenv.config();
 
-// temporary in-memory array, database integration later
-let users = [
-    {
-        username: "Thomas",
-        password:
-            "$2b$10$.YGj61gAR4G.cnvLmJMD/uwW2fyQbOQecrWOiHqEexyU8PRva.H4y",
-        role: "admin",
-    },
-    {
-        username: "Kushagra",
-        password:
-            "$2b$10$tJlpJDDoim.FWNIKbEoz2.BwBSRxwktdUjDSjMaCoGup1oTicHFvO",
-        role: "user",
-    },
-    {
-        username: "Charlie",
-        password:
-            "$2b$10$tJlpJDDoim.FWNIKbEoz2.BwBSRxwktdUjDSjMaCoGup1oTicHFvO",
-        role: "user",
-    },
-    {
-        username: "Vasil",
-        password:
-            "$2b$10$tJlpJDDoim.FWNIKbEoz2.BwBSRxwktdUjDSjMaCoGup1oTicHFvO",
-        role: "user",
-    },
-];
 let refreshTokens = [];
 
 export async function register(req, res) {
@@ -39,31 +13,32 @@ export async function register(req, res) {
         return res.status(403).send("This username is reserved!"); // that's me :D
     }
 
-    if (users.map((user) => user.username).includes(req.body.username)) {
+    const existingUser = await User.findOne({ username: req.body.username });
+    if (existingUser) {
         return res.status(403).send("This username is not available!");
     }
 
-    const username = req.body.username;
-    const password = req.body.password;
+    const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
-    const hashedPassword = await bcrypt.hash(password, 10);
-
-    const user = {
-        username: username,
+    const newUser = new User({
+        username: req.body.username,
         password: hashedPassword,
-        role: "user",
-    };
+    });
 
-    users.push(user);
-    res.status(201).send("Registered successfully");
+    try {
+        await newUser.save();
+        res.status(201).send("Registered successfully");
+    } catch (error) {
+        res.status(500).send("Error registering user");
+    }
 }
 
 export async function login(req, res) {
     const username = req.body.username;
     const password = req.body.password;
 
-    // Authentication
-    const user = users.find((user) => user.username === username);
+    // Authenthication
+    const user = await User.findOne({ username });
     if (!user) {
         return res.sendStatus(404);
     }
@@ -123,5 +98,3 @@ function generateRefreshToken(userPayload) {
         expiresIn: "1d",
     });
 }
-
-export { users };

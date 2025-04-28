@@ -1,6 +1,6 @@
 // for /me and /admin logic
-import { users } from "./authController.js";
 import bcrypt from "bcrypt";
+import User from "../models/User.js";
 
 // for users
 export function getMe(req, res) {
@@ -8,10 +8,7 @@ export function getMe(req, res) {
 }
 
 export async function updateUser(req, res) {
-    console.log("--- UPDATE USER ATTEMPT ---");
-    console.log("req.user:", req.user);
-    console.log("req.body:", req.body);
-    const user = users.find((user) => user.username === req.body.oldUsername);
+    const user = await User.findOne({ username: req.body.oldUsername });
     if (!user) return res.sendStatus(400);
 
     if (await bcrypt.compare(req.body.oldPassword, user.password)) {
@@ -28,6 +25,7 @@ export async function updateUser(req, res) {
             user.password = hashedPassword;
         }
 
+        await user.save();
         return res.status(200).send("Updated successfully!");
     } else {
         return res.status(400).send("Old password incorrect!");
@@ -35,38 +33,48 @@ export async function updateUser(req, res) {
 }
 
 // for admin
-export function getAdminDashboard(req, res) {
+export async function getAdminDashboard(req, res) {
     if (req.user.role !== "admin") return res.sendStatus(403);
 
-    const safeUsers = users.map(({ username, role }) => ({ username, role }));
-    return res.status(200).json(safeUsers);
+    try {
+        const users = await User.find({}, "username role"); // only get username + role
+        res.status(200).json(users);
+    } catch (error) {
+        res.status(500).send("Error fetching users");
+    }
 }
 
-export function deleteUser(req, res) {
+export async function deleteUser(req, res) {
     if (req.user.role !== "admin") return res.sendStatus(403);
 
     const username = req.params.username;
-    const user = users.find((user) => user.username === username);
-
-    if (!user) {
-        res.sendStatus(404);
+    try {
+        const result = await User.deleteOne({ username });
+        if (result.deletedCount === 0) {
+            return res.sendStatus(404);
+        }
+        res.status(200).send("Successful deletion");
+    } catch (error) {
+        res.status(500).send("Error deleting user");
     }
-
-    users = users.filter((user) => user.username != username);
-    res.status(200).send("Successful deletion");
 }
 
-export function promoteUser(req, res) {
+export async function promoteUser(req, res) {
     if (req.user.role !== "admin") return res.sendStatus(403);
 
     const username = req.params.username;
-    const user = users.find((user) => user.username === username);
+    try {
+        const user = await User.findOne({ username });
+        if (!user) {
+            return res.sendStatus(404);
+        }
 
-    if (!user) {
-        res.sendStatus(404);
+        user.role = "admin";
+        await user.save();
+
+        const safeUser = { username: user.username, role: user.role };
+        res.status(200).json(safeUser);
+    } catch (error) {
+        res.status(500).send("Error promoting user");
     }
-
-    user.role = "admin";
-    const safeUser = { username, role };
-    res.status(200).json(safeUser);
 }

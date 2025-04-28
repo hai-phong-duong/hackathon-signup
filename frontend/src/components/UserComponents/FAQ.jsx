@@ -31,7 +31,7 @@ function FAQ({ onSectionSelect }) {
                 </div>
                 <div
                     className={`overflow-hidden transition-all duration-250 text-text ${
-                        openID === 1 ? "h-[120px]" : "h-0"
+                        openID === 1 ? "h-[80px]" : "h-0"
                     }`}
                 >
                     <div className="mt-2">
