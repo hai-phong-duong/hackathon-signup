@@ -73,7 +73,7 @@ function FAQ({ onSectionSelect }) {
                         more involved ones like "How to integrate AI into your
                         projects." Check out the{" "}
                         <span
-                            className="cursor-pointer text-accent bg-accent-dark rounded-md px-1 hover:bg-accent-hover transition-all duration-250"
+                            className="cursor-pointer text-accent bg-accent-dark/20 rounded-md px-1 hover:bg-accent-hover transition-all duration-250"
                             onClick={() => onSectionSelect("Schedule")}
                         >
                             Event Schedule

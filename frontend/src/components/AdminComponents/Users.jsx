@@ -41,7 +41,7 @@ function Users({ users }) {
                                     </button>
                                 </div>
                             </div>
-                            <p className="">{user.role}</p>
+                            <p className="text-text-gray">{user.role}</p>
                         </div>
                     ))}
                 </div>
