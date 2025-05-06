@@ -14,7 +14,7 @@ A modern full-stack admin dashboard for managing hackathon data, built with **Re
 -   ⚡ Powered by Vite + React (heck yeah)
 -   🗃️ Express.js + MongoDB for custom RESTful API with NoSQL database (fun times)
 
----
+--- 
 
 ## 🖼️ Admin Dashboard Preview
 
